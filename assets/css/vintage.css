@@ -1,0 +1,135 @@
+/* Estilo romántico vintage: vino tinto, marfil y dorado. Se carga después de site.css y lo sobrescribe. */
+@font-face{font-family:'Playfair Display';src:url('../fonts/playfair-display-latin-400-normal.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Playfair Display';src:url('../fonts/playfair-display-latin-400-italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:'Cormorant Garamond';src:url('../fonts/cormorant-garamond-latin-400-normal.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Cormorant Garamond';src:url('../fonts/cormorant-garamond-latin-400-italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:'Cormorant Garamond';src:url('../fonts/cormorant-garamond-latin-600-normal.woff2') format('woff2');font-weight:500 700;font-display:swap}
+@font-face{font-family:'Pinyon Script';src:url('../fonts/pinyon-script-latin-400-normal.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Montserrat';src:url('../fonts/montserrat-latin-500-normal.woff2') format('woff2');font-weight:400 600;font-display:swap}
+
+:root{
+  --f-serif:'Playfair Display',Georgia,'Times New Roman',serif;
+  --f-sans:'Cormorant Garamond',Georgia,serif;
+  --f-hand:'Pinyon Script','Snell Roundhand',cursive;
+  --f-label:'Montserrat',system-ui,-apple-system,sans-serif;
+  --wine:#7a1f2b;--wine-d:#4e1018;--wine-l:#a8434f;--gold:#b08d57;--gold-l:#dcc79b;--ivory:#f3ebdf;--paper:#fffaf2;--line:#e2d4bf;
+  --shadow-sm:0 1px 3px rgba(42,20,22,.12);--shadow-md:0 6px 18px rgba(42,20,22,.14);--shadow-lg:0 18px 40px rgba(42,20,22,.2);
+}
+::selection{background:var(--color-accent-200)}
+body.site{background-color:var(--ivory);background-image:none;font-size:19px;line-height:1.55}
+a{color:var(--wine)}a:hover{color:var(--wine-d)}
+
+/* Tipografía */
+.serif-up{letter-spacing:.02em}
+.hand{font-family:var(--f-hand);font-weight:400;line-height:1.1;color:var(--wine)}
+.kicker-big,.kicker-mid{text-transform:none;font-style:italic;letter-spacing:0}
+.kicker-big{font-size:clamp(30px,4.2vw,56px)}
+.display{color:var(--color-text)}
+.lead{font-size:21px;font-style:italic;line-height:1.5}
+.prose{font-size:20px;line-height:1.6}.prose .strong{font-weight:600;font-style:italic;font-size:22px}
+.h-hand{font-size:clamp(40px,4vw,52px)!important}
+
+/* Botones: rectangulares, letras espaciadas */
+.btn{font-family:var(--f-label)!important;font-size:12px!important;font-weight:500;letter-spacing:.22em;text-transform:uppercase;border-radius:0!important;padding:14px 26px;min-height:46px}
+.btn-primary{background:var(--wine);color:var(--ivory);border:1px solid var(--wine)}
+.btn-primary:hover{background:var(--wine-d);color:var(--ivory)}
+.btn-secondary{border:1px solid var(--wine);color:var(--wine)}
+.btn-sm{padding:10px 18px;min-height:40px}
+
+/* Navegación */
+.nav-in{border-radius:0;background:color-mix(in srgb,var(--ivory) 90%,transparent);box-shadow:none;border-top:1px solid var(--gold);border-bottom:1px solid var(--gold);outline:1px solid color-mix(in srgb,var(--gold) 45%,transparent);outline-offset:3px}
+.nav-brand{font-family:var(--f-serif);font-size:clamp(15px,1.4vw,18px);font-weight:400;letter-spacing:.16em;text-transform:uppercase;color:var(--color-text)}
+.nav-links a{font-family:var(--f-label);font-size:11px;letter-spacing:.2em;text-transform:uppercase;border-radius:0}
+.nav-links a:hover,.nav-links a.on{background:transparent;color:var(--wine)}
+.nav-links .dot{background:var(--gold)}
+
+/* Portada */
+.pill-dark{font-family:var(--f-label);font-size:11px;font-weight:500;letter-spacing:.26em;background:var(--wine);color:var(--ivory);border-radius:0;outline:1px solid var(--gold);outline-offset:3px}
+.signature{font-family:var(--f-hand);font-size:clamp(40px,4.4vw,56px);font-weight:400;color:var(--wine)}
+.blob-accent{display:none}
+.blob-sage{left:50%;top:50%;height:69.4%;width:auto;aspect-ratio:172/236;transform:translate(-50%,-50%);background:radial-gradient(ellipse at 50% 35%,var(--wine-l),var(--wine) 55%,var(--wine-d));box-shadow:inset 0 0 40px rgba(0,0,0,.25)}
+.d-marco{top:0;left:50%;height:100%;width:auto;translate:-50% 0;z-index:1;filter:none}
+.hero-photo{z-index:2}
+.d-mariposa{width:15%;top:44%;right:2%}
+.d-sello-hero{top:6%;right:4%;width:16%;rotate:10deg;z-index:3}
+
+/* Marcos tipo polaroid → papel marfil con cinta de encaje */
+.polaroid{background:var(--paper);border:1px solid var(--line);border-radius:2px;padding:10px 10px 16px;box-shadow:var(--shadow-md)}
+.polaroid img{border-radius:0}
+.tape{background-color:#f1e6d3;border-top:1px dashed var(--gold);border-bottom:1px dashed var(--gold);border-radius:0;height:26px;opacity:.95;box-shadow:0 1px 2px rgba(42,20,22,.12);background-image:radial-gradient(circle,var(--gold-l) 1.2px,transparent 1.6px);background-size:9px 9px}
+.about{background:#f8f2e8}
+.about:not(.about-2){border-radius:0;box-shadow:none;border-top:1px solid var(--gold)}
+.sign{font-size:60px;color:var(--wine)}
+.star.s1{width:20%;top:-6%;left:2%;rotate:-12deg}.star.s2{width:22%;top:-2%;left:22%;rotate:8deg}
+.gafas{width:clamp(130px,16vw,220px);rotate:0deg;filter:drop-shadow(0 8px 10px rgba(42,20,22,.18))}
+.where .hand{font-size:40px}
+
+/* Contenido: rayas como papel tapiz */
+.pillars{background:repeating-linear-gradient(90deg,#efe4d3 0 30px,#f7f0e5 30px 60px)}
+.seal-title img{width:clamp(64px,8vw,104px);filter:drop-shadow(0 6px 10px rgba(42,20,22,.2))}
+.seal-title{background:var(--paper);border:1px solid var(--wine);outline:1px solid var(--wine);outline-offset:5px;width:max-content;max-width:100%;margin-left:auto;margin-right:auto;padding:14px 34px 14px 20px;border-radius:999px}
+.pill-label{font-family:var(--f-hand);font-size:clamp(28px,2.6vw,36px);background:var(--paper);border:1px solid var(--gold);color:var(--wine);padding:4px 22px 8px}
+
+/* Comunidad: bloque vino con borde de encaje */
+.community{background:radial-gradient(ellipse at 30% 20%,#8b2a37,var(--wine) 45%,var(--wine-d));border-radius:0;color:var(--ivory);margin:40px 0}
+.community::before,.community::after{content:'';position:absolute;left:0;right:0;height:30px;background:url('../ornaments/encaje-vino.svg') repeat-x;background-size:auto 30px;pointer-events:none}
+.community::before{top:-29px;transform:scaleY(-1)}
+.community::after{bottom:-29px}
+.community .prose,.community .big-number{color:var(--ivory)}
+.community .h-hand{color:var(--gold-l)}
+.live{font-family:var(--f-label);color:var(--gold-l)}.live i{background:var(--gold-l)}
+.big-number{font-family:var(--f-serif)}
+.sello{width:20%;top:-6%;left:-4%;rotate:-8deg}
+.silver{width:clamp(70px,8vw,100px);top:-70px}
+
+/* Reels */
+.chip{font-family:var(--f-label);font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;border:1px solid var(--wine);color:var(--wine);border-radius:0;padding:10px 16px}
+.chip.on{background:var(--wine);color:var(--ivory)}
+.phone-back{background:var(--wine);opacity:.85}
+.phone,.notch{border-color:#1f0f11}
+.cap{font-family:var(--f-hand)!important;font-weight:400!important;font-size:clamp(26px,12cqi,34px)!important;color:var(--wine)}
+.ipad{width:clamp(90px,10vw,140px);rotate:-10deg}
+
+/* Marcas */
+.brands{background:#f8f2e8;border-radius:0;border-top:1px solid var(--gold);border-bottom:1px solid var(--gold)}
+.logo{background:var(--paper);border:1px solid var(--line);border-radius:2px;box-shadow:none}
+.logo:hover{box-shadow:var(--shadow-md)}
+
+/* Contacto: tarjeta tipo cartela con esquinas recortadas */
+.contact-card{--c:36px;background:transparent;box-shadow:none;border-radius:0;filter:drop-shadow(0 16px 30px rgba(42,20,22,.18))}
+.contact-card::before,.contact-card::after{content:'';position:absolute;z-index:-1;pointer-events:none;
+  -webkit-mask:radial-gradient(circle at 0 0,#0000 var(--c),#000 calc(var(--c) + .5px)) 0 0/51% 51% no-repeat,radial-gradient(circle at 100% 0,#0000 var(--c),#000 calc(var(--c) + .5px)) 100% 0/51% 51% no-repeat,radial-gradient(circle at 0 100%,#0000 var(--c),#000 calc(var(--c) + .5px)) 0 100%/51% 51% no-repeat,radial-gradient(circle at 100% 100%,#0000 var(--c),#000 calc(var(--c) + .5px)) 100% 100%/51% 51% no-repeat;
+          mask:radial-gradient(circle at 0 0,#0000 var(--c),#000 calc(var(--c) + .5px)) 0 0/51% 51% no-repeat,radial-gradient(circle at 100% 0,#0000 var(--c),#000 calc(var(--c) + .5px)) 100% 0/51% 51% no-repeat,radial-gradient(circle at 0 100%,#0000 var(--c),#000 calc(var(--c) + .5px)) 0 100%/51% 51% no-repeat,radial-gradient(circle at 100% 100%,#0000 var(--c),#000 calc(var(--c) + .5px)) 100% 100%/51% 51% no-repeat}
+.contact-card::before{inset:0;background:var(--wine)}
+.contact-card::after{inset:3px;background:var(--paper)}
+.contact-card>*{position:relative}
+.contact-card .deco{position:absolute}
+.c-top{font-style:italic;text-transform:none}
+.c-title{color:var(--wine)}
+.handle{font-family:var(--f-label);font-size:13px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.contact-lines{font-size:20px}
+.cta-big{font-size:12px!important}
+.c-star{width:clamp(64px,8vw,90px);top:-40px}
+.foot{font-family:var(--f-label);font-size:11px;letter-spacing:.14em;text-transform:uppercase}.foot .hand{font-family:var(--f-hand);text-transform:none;letter-spacing:0;font-size:30px}
+.foot-credit{font-size:10px}
+
+/* Formulario y elementos flotantes */
+.form-paper{background:var(--paper);background-image:none;border:1px solid var(--gold);outline:1px solid var(--gold);outline-offset:-8px;border-radius:0}
+.form-paper .form-kicker{font-size:48px}.form-paper .done-kicker{font-size:54px}.form-paper .done-thanks{font-size:42px}
+.tape-y{background-color:var(--wine);background-image:none;box-shadow:0 1px 3px rgba(42,20,22,.3)}
+.close{border:1px solid var(--wine);color:var(--wine);background:var(--paper)}
+.f label{font-family:var(--f-label);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:500}
+.f input,.f textarea{border:1px solid var(--color-neutral-400);border-radius:0!important;background:#fffdf8;font-family:var(--f-sans);font-size:18px}
+.consent{font-size:15px}
+.float-btn{background:var(--wine);color:var(--ivory)}
+.float-menu{background:var(--paper);border:1px solid var(--gold);border-radius:0}
+.float-menu .hand{font-size:34px}
+.float-menu a{border-radius:0}.float-menu a:hover{background:var(--color-accent-100)}
+.to-top{background:var(--paper);border:1px solid var(--gold);border-radius:0;font:400 26px var(--f-hand);color:var(--wine)}
+.cookie{background:var(--paper);border:1px solid var(--gold);border-radius:0;font-size:16px}
+.display{font-size:clamp(52px,8.6vw,122px)}
+.pill-label{white-space:nowrap;font-size:clamp(24px,2.2vw,32px)}
+.play{background:var(--paper);color:var(--wine);border:1px solid var(--gold)}
+.gafas{width:clamp(110px,12vw,170px)}
+@media (max-width:1023px){.contact-card{flex:0 0 auto}}
+@media (max-width:719px){.gafas{display:none}.d-sello-hero{display:none}}
