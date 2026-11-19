@@ -1,0 +1,6 @@
+{
+  "name": "portafolio-giselle",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=18" }
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "nombre": "Desarrolla tus Finanzas",
+    "logo": "/assets/images/logo-desarrolla.webp"
+  },
+  {
+    "nombre": "NutraBrand",
+    "logo": "/assets/images/logo-nutrabrand.webp"
+  },
+  {
+    "nombre": "Entire",
+    "logo": "/assets/images/logo-entire.webp"
+  },
+  {
+    "nombre": "Comunidad360",
+    "logo": "/assets/images/logo-comunidad360.webp"
+  },
+  {
+    "nombre": "arcetec",
+    "logo": "/assets/images/logo-arcetec.webp"
+  },
+  {
+    "nombre": "Campus360",
+    "logo": "/assets/images/logo-campus360.webp"
+  },
+  {
+    "nombre": "Salud Ocupacional Los Andes",
+    "logo": "/assets/images/logo-los-andes.webp"
+  },
+  {
+    "nombre": "Plata Pay",
+    "logo": "/assets/images/logo-plata-pay.png"
+  },
+  {
+    "nombre": "Morse",
+    "logo": "/assets/images/logo-morse.png"
+  },
+  {
+    "nombre": "Persil",
+    "logo": "/assets/images/logo-persil.webp"
+  }
+]
