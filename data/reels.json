@@ -1,5 +1,11 @@
 [
   {
+    "categoria": "Vlog",
+    "video": "/media/reels/videos/vlog-cabello.mp4",
+    "portada": "/assets/images/reel-vlog-cabello.webp",
+    "descripcion": "Vlog: cuidado del cabello"
+  },
+  {
     "categoria": "Suplementos",
     "video": "https://giselle-buitrago.hostingersite.com/media/reels/videos/tvhjs7z8m4ijrcidn0o63nwn4kiijb5d.mp4",
     "portada": "/assets/images/reel-suplementos.webp",
