@@ -176,6 +176,37 @@
       });
     }
 
+
+    // 9) Sobre de marcas: los logos salen del sobre al llegar a la sección
+    (function () {
+      var esc = d.querySelector('[data-sobre]'); if (!esc) { return; }
+      var sobre = esc.querySelector('.sobre'), logos = esc.querySelectorAll('.logo');
+      if (reduced || !('IntersectionObserver' in window) || !logos.length) { esc.classList.add('abierto'); return; }
+      function medir() {
+        var abierto = esc.classList.contains('abierto');
+        esc.classList.remove('listo', 'abierto');
+        var r = sobre.getBoundingClientRect(), cx = r.left + r.width / 2, cy = r.top + r.height * 0.72;
+        logos.forEach(function (l, i) {
+          var b = l.getBoundingClientRect();
+          l.style.setProperty('--dx', (cx - (b.left + b.width / 2)) + 'px');
+          l.style.setProperty('--dy', (cy - (b.top + b.height / 2)) + 'px');
+          l.style.setProperty('--i', i);
+          l.style.setProperty('--r', ((i % 2 ? 1 : -1) * (4 + (i * 7) % 9)) + 'deg');
+        });
+        esc.classList.add('listo'); if (abierto) { esc.classList.add('abierto'); }
+      }
+      medir();
+      var t; window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(medir, 200); });
+      var io2 = new IntersectionObserver(function (es) {
+        es.forEach(function (e) { if (e.isIntersecting) { esc.classList.add('abierto'); io2.disconnect(); } });
+      }, { threshold: 0.2 });
+      io2.observe(esc);
+      sobre.addEventListener('click', function () {
+        esc.classList.remove('abierto'); void esc.offsetWidth;
+        setTimeout(function () { esc.classList.add('abierto'); }, 700);
+      });
+    })();
+
     // 8) Aviso de cookies tecnicas
     var ck = d.querySelector('[data-cookie]'), ok = d.querySelector('[data-cookie-ok]');
     try { if (ck && !localStorage.getItem('cookie-ok')) { ck.hidden = false; } } catch (e) { if (ck) { ck.hidden = false; } }
