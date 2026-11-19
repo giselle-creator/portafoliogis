@@ -167,3 +167,13 @@ a{color:var(--wine)}a:hover{color:var(--wine-d)}
 @keyframes flotar{0%{translate:0 0;rotate:0deg}35%{translate:0 -7px;rotate:-1.2deg}70%{translate:0 3px;rotate:1deg}100%{translate:0 -4px;rotate:.4deg}}
 .sobre-escena.abierto .logo:hover{animation-play-state:paused;box-shadow:var(--shadow-md)}
 @media (prefers-reduced-motion:reduce){.sobre-escena .logo{animation:none!important}}
+/* iPad horizontal y pantallas medianas: menú compacto para que todo quepa */
+.nav-links a{white-space:nowrap}
+.nav-cta{flex:none}
+@media (max-width:1399px){
+  .nav-in{gap:12px;padding-left:16px}
+  .nav-brand{letter-spacing:.1em;font-size:15px}
+  .nav-links a{padding:8px 7px;letter-spacing:.12em;font-size:10.5px}
+  .nav-cta{padding:12px 16px;letter-spacing:.16em}
+}
+@media (max-width:1179px){.foot{padding-bottom:96px}}
