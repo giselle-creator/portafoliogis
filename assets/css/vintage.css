@@ -143,3 +143,11 @@ a{color:var(--wine)}a:hover{color:var(--wine-d)}
 /* Portada: marco más sutil, sin fondo vino, difuminado hacia abajo */
 .hero .blob-sage{display:none}
 .d-marco{height:92%;top:4%;opacity:.55;filter:blur(.4px);-webkit-mask:linear-gradient(to bottom,#000 0%,#000 45%,rgba(0,0,0,.15) 92%,transparent 100%);mask:linear-gradient(to bottom,#000 0%,#000 45%,rgba(0,0,0,.15) 92%,transparent 100%)}
+/* Portada sin marco: cinta dorada, sello de mariposa y libros antiguos */
+.d-cinta{top:-2%;left:2%;width:62%;z-index:1;rotate:-6deg;filter:drop-shadow(0 6px 8px rgba(42,20,22,.15))}
+.d-mariposa{width:15%;top:40%;right:3%;rotate:10deg;filter:drop-shadow(0 10px 14px rgba(42,20,22,.28))}
+.d-libro{width:27%;bottom:0;left:3%;rotate:0deg;z-index:3;filter:drop-shadow(0 12px 16px rgba(42,20,22,.25))}
+.d-hibisco{top:-50px;right:2%;width:clamp(90px,10vw,150px);rotate:18deg;z-index:4;filter:drop-shadow(0 12px 16px rgba(42,20,22,.25))}
+@media (max-width:719px){.d-hibisco{top:-36px;width:80px}.d-cinta{width:56%}}
+.d-hibisco{right:auto;left:2%;rotate:-14deg}
+.d-mariposa{width:17%}
