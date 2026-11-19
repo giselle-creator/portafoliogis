@@ -185,7 +185,7 @@
       function medir() {
         var abierto = esc.classList.contains('abierto');
         esc.classList.remove('listo', 'abierto');
-        var r = sobre.getBoundingClientRect(), cx = r.left + r.width / 2, cy = r.top + r.height * 0.72;
+        var r = sobre.getBoundingClientRect(), cx = r.left + r.width / 2, cy = r.top + r.height * 0.78;
         logos.forEach(function (l, i) {
           var b = l.getBoundingClientRect();
           l.style.setProperty('--dx', (cx - (b.left + b.width / 2)) + 'px');
