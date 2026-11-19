@@ -38,5 +38,9 @@
   {
     "nombre": "Persil",
     "logo": "/assets/images/logo-persil.webp"
+  },
+  {
+    "nombre": "Dove",
+    "logo": "/assets/images/logo-dove.webp"
   }
 ]
