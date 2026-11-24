@@ -13,7 +13,9 @@ assets/images, cutouts,
 decorations                Fotos, recortes, logos y decoraciones
 data/reels.json            ← Lista de reels (edítala para agregar o quitar videos)
 data/marcas.json           ← Lista de logos de marcas
+data/resenas.json          ← Reseñas aprobadas (las que se muestran)
 media/reels/videos/        ← Aquí van los videos (.mp4)
+api/resena.js              Formulario de reseñas (te llegan por correo para aprobar)
 api/contacto.js            Formulario "Trabajemos juntos" (envía correo con Resend)
 vercel.json                Configuración de Vercel
 ```
@@ -43,6 +45,18 @@ Sube el logo a `assets/images/` y agrega en `data/marcas.json`:
 ```json
 { "nombre": "Nombre de la marca", "logo": "/assets/images/logo-marca.webp" }
 ```
+
+## Reseñas
+
+Las marcas dejan su reseña con el botón "Dejar una reseña". **No se publica sola**: te llega
+a tu correo con el asunto "Nueva reseña para aprobar" y un bloque listo para copiar.
+Para publicarla, agrégala a `data/resenas.json` (o pídele a Claude "publica esta reseña"):
+
+```json
+{ "nombre": "Ana Pérez", "marca": "Marca X", "cargo": "CEO", "estrellas": 5, "texto": "…", "fecha": "2026-11-24" }
+```
+
+Mientras la lista esté vacía, la sección solo muestra la invitación a dejar una reseña.
 
 ## Formulario de contacto
 

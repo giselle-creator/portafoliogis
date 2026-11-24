@@ -177,3 +177,32 @@ a{color:var(--wine)}a:hover{color:var(--wine-d)}
   .nav-cta{padding:12px 16px;letter-spacing:.16em}
 }
 @media (max-width:1179px){.foot{padding-bottom:96px}}
+
+/* Reseñas */
+.resenas{position:relative;background:repeating-linear-gradient(90deg,#efe4d3 0 30px,#f7f0e5 30px 60px);border-top:1px solid var(--gold);border-bottom:1px solid var(--gold)}
+.res-head{text-align:center;margin-bottom:clamp(28px,4vw,48px)}
+.res-head .h-hand{display:block;margin-bottom:-8px}
+.res-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(18px,2.4vw,30px);margin-bottom:clamp(28px,4vw,44px)}
+.res-grid[hidden]{display:none}
+.res-card{position:relative;margin:0;background:var(--paper);border:1px solid var(--line);outline:1px solid var(--line);outline-offset:-8px;padding:34px 28px 26px;box-shadow:var(--shadow-md);display:flex;flex-direction:column;gap:14px}
+.res-card:nth-child(3n+1){rotate:-.8deg}.res-card:nth-child(3n+2){rotate:.6deg}
+.res-card::before{content:'';position:absolute;top:-22px;left:50%;width:46px;height:46px;translate:-50% 0;background:url('../ornaments/sello-rosa.svg') center/contain no-repeat}
+.res-estrellas{color:var(--gold);letter-spacing:.18em;font-size:18px;text-align:center}.res-estrellas span{color:var(--line)}
+.res-card blockquote{margin:0;font-style:italic;font-size:19px;line-height:1.55;color:var(--color-text);flex:1}
+.res-card blockquote::before{content:'“';font-family:var(--f-serif);font-size:48px;line-height:0;vertical-align:-18px;color:var(--wine);margin-right:4px}
+.res-card figcaption{display:flex;flex-direction:column;align-items:center;gap:2px;border-top:1px solid var(--line);padding-top:14px;text-align:center}
+.res-nombre{font-family:var(--f-hand);font-size:32px;color:var(--wine);line-height:1.1}
+.res-cargo{font-size:16px;font-style:italic}
+.res-marca{font-family:var(--f-label);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.res-invita{display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center}
+.res-invita p{margin:0;font-size:21px;font-style:italic}
+.res-sello{top:28px;right:6%;width:clamp(64px,7vw,96px);rotate:12deg;filter:drop-shadow(0 8px 12px rgba(42,20,22,.25))}
+.estrellas-input{border:0;padding:0;margin:0 0 6px;text-align:center}
+.estrellas-input legend{font-family:var(--f-label);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;margin:0 auto 4px}
+.estrellas-fila{display:inline-flex;flex-direction:row-reverse;gap:4px}
+.estrellas-fila input{position:absolute;opacity:0;width:1px;height:1px}
+.estrellas-fila label{font-size:34px;line-height:1;color:var(--line);cursor:pointer;transition:color .15s,transform .15s}
+.estrellas-fila input:checked~label,.estrellas-fila label:hover,.estrellas-fila label:hover~label{color:var(--gold)}
+.estrellas-fila input:focus-visible+label{outline:2px solid var(--wine);outline-offset:2px}
+.estrellas-fila label:hover{transform:scale(1.12)}
+@media (max-width:719px){.res-sello{top:14px;right:4%;width:56px}}

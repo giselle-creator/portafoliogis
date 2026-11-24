@@ -207,6 +207,46 @@
       });
     })();
 
+
+    // 10) Reseñas: se muestran las de /data/resenas.json; las nuevas llegan por correo para aprobarlas
+    (function () {
+      var grid = d.querySelector('[data-resenas]');
+      if (grid) {
+        getJSON('/data/resenas.json').then(function (list) {
+          list = Array.isArray(list) ? list : [];
+          grid.innerHTML = list.map(function (r) {
+            var n = Math.max(1, Math.min(5, parseInt(r.estrellas, 10) || 5));
+            return '<figure class="res-card"><div class="res-estrellas" aria-label="' + n + ' de 5 estrellas">' + '★★★★★'.slice(0, n) + '<span>' + '★★★★★'.slice(n) + '</span></div>' +
+              '<blockquote>' + esc(r.texto) + '</blockquote>' +
+              '<figcaption><span class="res-nombre">' + esc(r.nombre) + '</span>' + (r.cargo ? '<span class="res-cargo">' + esc(r.cargo) + '</span>' : '') + '<span class="res-marca">' + esc(r.marca) + '</span></figcaption></figure>';
+          }).join('');
+          grid.hidden = !list.length;
+          var vacio = d.querySelector('[data-resenas-vacio]');
+          if (vacio && list.length) { vacio.textContent = '¿Trabajamos juntos? Cuéntame cómo te fue.'; }
+        });
+      }
+      var rd = d.getElementById('resena-dialog'), rf = d.querySelector('[data-resena-form]');
+      if (!rd || !rf || typeof rd.showModal !== 'function') { return; }
+      var ok = rd.querySelector('[data-resena-ok]'), errs = rf.querySelector('[data-resena-errors]');
+      function show(list) { errs.hidden = !list.length; errs.innerHTML = list.length ? '<ul>' + list.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ul>' : ''; }
+      d.querySelectorAll('[data-open-resena]').forEach(function (b) { b.addEventListener('click', function () { rf.hidden = false; ok.hidden = true; show([]); rd.showModal(); var n = d.getElementById('rf-name'); if (n) { n.focus(); } }); });
+      rd.querySelector('[data-close-resena]').addEventListener('click', function () { rd.close(); });
+      rd.addEventListener('click', function (e) { if (e.target === rd) { rd.close(); } });
+      rf.addEventListener('submit', function (e) {
+        e.preventDefault(); show([]);
+        var btn = rf.querySelector('button[type="submit"]'); btn.disabled = true;
+        fetch(rf.getAttribute('action'), { method: 'POST', headers: { 'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(new FormData(rf)).toString() })
+          .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { s: r.status, j: j }; }); })
+          .then(function (res) {
+            if (res.s === 200 && res.j.ok) { rf.reset(); rf.hidden = true; ok.hidden = false; }
+            else if (res.s === 422 && res.j.errors) { var m = []; Object.keys(res.j.errors).forEach(function (k) { m = m.concat(res.j.errors[k]); }); show(m); }
+            else { show(['No se pudo enviar. Inténtalo de nuevo o escríbeme por WhatsApp.']); }
+          })
+          .catch(function () { show(['Sin conexión. Revisa tu internet e inténtalo de nuevo.']); })
+          .then(function () { btn.disabled = false; });
+      });
+    })();
+
     // 8) Aviso de cookies tecnicas
     var ck = d.querySelector('[data-cookie]'), ok = d.querySelector('[data-cookie-ok]');
     try { if (ck && !localStorage.getItem('cookie-ok')) { ck.hidden = false; } } catch (e) { if (ck) { ck.hidden = false; } }

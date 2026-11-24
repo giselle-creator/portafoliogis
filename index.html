@@ -14,10 +14,10 @@
     <meta property="og:image" content="/assets/images/retrato.webp">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" type="image/svg+xml" href="/assets/ornaments/sello-rosa.svg">
-    <link rel="stylesheet" href="/assets/css/organic.css?v=10">
-    <link rel="stylesheet" href="/assets/css/site.css?v=10">
-    <link rel="stylesheet" href="/assets/css/vintage.css?v=10">
-    <script src="/assets/js/site.js?v=10"></script>
+    <link rel="stylesheet" href="/assets/css/organic.css?v=11">
+    <link rel="stylesheet" href="/assets/css/site.css?v=11">
+    <link rel="stylesheet" href="/assets/css/vintage.css?v=11">
+    <script src="/assets/js/site.js?v=11"></script>
     <script type="application/ld+json">[{"@context":"https://schema.org","@type":"Person","name":"Giselle Buitrago Russi","jobTitle":"Creadora de contenido digital UGC","url":"/","image":"/assets/images/retrato.webp","address":{"@type":"PostalAddress","addressLocality":"Bogotá","addressCountry":"CO"},"sameAs":[]},{"@context":"https://schema.org","@type":"WebSite","name":"Giselle Buitrago Russi","url":"/","inLanguage":"es-CO"}]</script>
 </head>
 <body class="site ">
@@ -198,7 +198,21 @@
 </section>
 </div>
 
-<div class="web-sec" data-sec="testimonios" style="order:8"></div>
+<div class="web-sec" data-sec="testimonios" style="order:8"><section id="resenas" class="sec resenas">
+    <img class="deco res-sello" src="/assets/cutouts/sello-mariposa.webp" alt="" aria-hidden="true">
+    <div class="container">
+        <div class="res-head reveal" data-reveal="up">
+            <span class="hand accent h-hand">lo que dicen</span>
+            <h2 class="serif-up h-xl">Reseñas</h2>
+        </div>
+        <div class="res-grid" data-resenas></div>
+        <div class="res-invita reveal" data-reveal="up">
+            <p data-resenas-vacio>¿Trabajamos juntos? Me encantaría saber cómo fue tu experiencia.</p>
+            <button type="button" class="btn btn-secondary" data-open-resena>Dejar una reseña</button>
+        </div>
+    </div>
+</section>
+</div>
 
 <div class="web-sec" data-sec="faq" style="order:9"></div>
 
@@ -253,6 +267,49 @@
 </dialog>
 
 
+
+<dialog class="form-dialog" id="resena-dialog" aria-labelledby="res-form-title">
+    <div class="form-paper">
+        <span class="tape tape-y tape-tl" aria-hidden="true"></span>
+        <span class="tape tape-y tape-tr" aria-hidden="true"></span>
+        <span class="tape tape-y tape-bl" aria-hidden="true"></span>
+        <span class="tape tape-y tape-br" aria-hidden="true"></span>
+        <button type="button" class="close" data-close-resena aria-label="Cerrar formulario de reseña">✕</button>
+        <div data-resena-view>
+            <form method="POST" action="/api/resena" data-resena-form novalidate>
+                <span id="res-form-title" class="hand accent form-kicker">tu reseña</span>
+                <fieldset class="estrellas-input">
+                    <legend>Calificación</legend>
+                    <div class="estrellas-fila">
+                        <input type="radio" id="rs5" name="rating" value="5" checked><label for="rs5" title="5 estrellas">★</label>
+                        <input type="radio" id="rs4" name="rating" value="4"><label for="rs4" title="4 estrellas">★</label>
+                        <input type="radio" id="rs3" name="rating" value="3"><label for="rs3" title="3 estrellas">★</label>
+                        <input type="radio" id="rs2" name="rating" value="2"><label for="rs2" title="2 estrellas">★</label>
+                        <input type="radio" id="rs1" name="rating" value="1"><label for="rs1" title="1 estrella">★</label>
+                    </div>
+                </fieldset>
+                <div class="f-row">
+                    <div class="f"><label for="rf-name">Tu nombre</label><input id="rf-name" name="name" required maxlength="80" autocomplete="name" placeholder="Nombre y apellido"></div>
+                    <div class="f"><label for="rf-brand">Marca o empresa</label><input id="rf-brand" name="brand" required maxlength="80" autocomplete="organization" placeholder="Nombre de la marca"></div>
+                </div>
+                <div class="f-row">
+                    <div class="f"><label for="rf-role">Cargo (opcional)</label><input id="rf-role" name="role" maxlength="80" autocomplete="organization-title" placeholder="Ej.: Directora de marketing"></div>
+                    <div class="f"><label for="rf-email">Correo (no se publica)</label><input id="rf-email" name="email" type="email" required maxlength="191" autocomplete="email" placeholder="tu@marca.com"></div>
+                </div>
+                <div class="f"><label for="rf-text">¿Cómo fue trabajar conmigo?</label><textarea id="rf-text" name="text" required minlength="20" maxlength="700" rows="4" placeholder="El contenido, los tiempos, los resultados…"></textarea></div>
+                <div class="hp" aria-hidden="true"><label>No llenar este campo<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+                <label class="consent"><input type="checkbox" name="consent" value="1" required> <span>Autorizo publicar mi nombre, marca, cargo y reseña en este sitio, según la <a href="/politica-de-privacidad" target="_blank" rel="noopener">política de privacidad</a>.</span></label>
+                <div class="form-errors" data-resena-errors role="alert" hidden></div>
+                <button type="submit" class="btn btn-primary pill btn-send">Enviar reseña</button>
+            </form>
+            <div class="done" data-resena-ok hidden role="status">
+                <span class="hand accent done-kicker">¡gracias!</span>
+                <p>Recibí tu reseña. La publicaré en cuanto la revise.</p>
+            </div>
+        </div>
+    </div>
+</dialog>
+
 <dialog class="form-dialog ok-dialog" id="lead-ok-dialog" aria-labelledby="lead-ok-title">
     <div class="form-paper ok-paper" role="status">
         <span class="tape tape-y tape-tl" aria-hidden="true"></span>
@@ -276,6 +333,7 @@
                     <a href="#comunidad" data-menu-link>Comunidad</a>
                     <a href="#reels" data-menu-link>Reels</a>
                     <a href="#marcas" data-menu-link>Marcas</a>
+                    <a href="#resenas" data-menu-link>Reseñas</a>
                     <a href="#contacto" data-menu-link>Contacto</a>
             </div>
     <button type="button" class="to-top" data-to-top aria-label="Volver arriba" hidden>↑ arriba</button>
