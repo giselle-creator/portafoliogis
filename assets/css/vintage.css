@@ -206,3 +206,4 @@ a{color:var(--wine)}a:hover{color:var(--wine-d)}
 .estrellas-fila input:focus-visible+label{outline:2px solid var(--wine);outline-offset:2px}
 .estrellas-fila label:hover{transform:scale(1.12)}
 @media (max-width:719px){.res-sello{top:14px;right:4%;width:56px}}
+.reel-error{position:absolute;left:10%;right:10%;bottom:12%;z-index:3;background:rgba(255,250,242,.92);border:1px solid var(--gold);padding:8px 10px;font-family:var(--f-label);font-size:10px;letter-spacing:.1em;text-transform:uppercase;text-align:center;color:var(--wine)}

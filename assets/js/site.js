@@ -105,6 +105,11 @@
           var src = phone.getAttribute('data-src');
           if (!src || !(/^https:\/\//i.test(src) || src.charAt(0) === '/')) { return; }
           el = d.createElement('video'); el.src = src; el.controls = true; el.autoplay = true; el.playsInline = true; el.setAttribute('playsinline', ''); el.poster = phone.getAttribute('data-poster') || '';
+          el.addEventListener('error', function () {
+            var p = phone.getAttribute('data-poster'); el.remove();
+            if (p) { var im = d.createElement('img'); im.src = p; im.alt = ''; phone.appendChild(im); }
+            var msg = d.createElement('span'); msg.className = 'reel-error'; msg.textContent = 'Este video no se pudo cargar'; phone.appendChild(msg);
+          });
         } else {
           var u; try { u = new URL(phone.getAttribute('data-embed')); } catch (e) { return; }
           if (u.protocol !== 'https:' || EMBED_HOSTS.indexOf(u.hostname) === -1) { return; }
