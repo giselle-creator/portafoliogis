@@ -42,5 +42,9 @@
   {
     "nombre": "Dove",
     "logo": "/assets/images/logo-dove-completo.webp"
+  },
+  {
+    "nombre": "Hair Bond",
+    "logo": "/assets/images/logo-hair-bond.webp"
   }
 ]
